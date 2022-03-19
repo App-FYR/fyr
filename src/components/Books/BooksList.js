@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import LazyLoadImg from "../utils/LazyLoadImg";
 
-const BooksList = (props) => {
+const BooksList = props => {
   const { books } = props;
 
   if (books.items.length === 0) return <p>No books found.</p>;
 
   const formattedAuthors = book => {
-    if (!book.authors) return 'Unknown';
+    if (!book.authors) return "Unknown";
 
     const authorsNumber = book.authors.length;
     if (authorsNumber === 1) return book.authors.toString();
@@ -25,9 +25,9 @@ const BooksList = (props) => {
             <div className="illustration p-3">
               <LazyLoadImg
                 image={{
-                  alt: 'Img cover',
+                  alt: "Img cover",
                   src: book.images.thumbnail,
-                  class: 'card-img-top'
+                  class: "card-img-top",
                 }}
               />
             </div>
@@ -38,8 +38,15 @@ const BooksList = (props) => {
             <div className="card-text">
               <p className="text-muted">{formattedAuthors(book)}</p>
             </div>
-            <div className='book-button-action'>
-              <Link to={`/books/${book.id}`} rel="noreferrer" target="_blank" className="btn btn-sm btn-primary">More...</Link>
+            <div className="book-button-action">
+              <Link
+                to={`https://app-fyr.github.io/books/${book.id}`}
+                rel="noreferrer"
+                target="_blank"
+                className="btn btn-sm btn-primary"
+              >
+                More...
+              </Link>
             </div>
           </div>
         </div>
@@ -47,11 +54,9 @@ const BooksList = (props) => {
     );
   };
 
-  return (
-    books.items.map((book, i) => {
-      return BookItem(book, i);
-    })
-  );
+  return books.items.map((book, i) => {
+    return BookItem(book, i);
+  });
 };
 
 export default BooksList;

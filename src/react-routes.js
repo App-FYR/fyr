@@ -8,9 +8,13 @@ const ReactRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="/" exact element={<Navigate to="/home" replace={true} />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/books/:bookId" element={<BookPage />} />
+        <Route
+          path="https://app-fyr.github.io/"
+          exact
+          element={<Navigate to="/home" replace={true} />}
+        />
+        <Route path="https://app-fyr.github.io/home" element={<HomePage />} />
+        <Route path="https://app-fyr.github.io/books/:bookId" element={<BookPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
